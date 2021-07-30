@@ -31,6 +31,25 @@ class Viereck
     position.add(direction.copy().mult(speed));
   }
   
+  boolean intersects(Viereck other)
+  {
+    boolean isAbove = (other.position.y + other.size) < position.y;
+    boolean isLeft = (other.position.x + other.size) < position.x;
+    boolean isRight =  (position.x + size) < other.position.x;
+    boolean isUnder = (position.y + size) < other.position.y;
+    
+    if(isAbove)
+      return false;
+    if(isLeft)
+      return false;
+    if(isRight)
+      return false;
+    if(isUnder)
+      return false;
+      
+  return true;
+  }
+  
   int size;
   PVector position;
   color myColor;
