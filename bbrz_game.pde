@@ -34,9 +34,12 @@ void draw() {
   score++;
   
    fill(255,255,255);
-   text(score,10,10);
-   text(highscore,100,10);
+   text("score: " + score,10,10);
+   text("highscore" + highscore,200,10);
    
+   if(score%150 == 0)
+     e.speed++;
+     
   if(e.intersects(p))
   {
     //gameover
