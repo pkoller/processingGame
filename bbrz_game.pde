@@ -11,10 +11,14 @@ void setup(){
   size(500, 500, P2D);
 
   frameRate(60);
+  init();
+}
+
+void init()
+{
   p = new Player();
   e = new Enemy();
 }
-
  
 void draw() {    
   background(0);
@@ -26,6 +30,11 @@ void draw() {
   p.move();
   p.draw();
   
+  if(e.intersects(p))
+  {
+    //gameover
+    init();
+  }
    //v.velocity.add(new PVector(mouseX,0));
  }
  
