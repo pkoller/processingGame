@@ -18,6 +18,7 @@ void init()
 {
   p = new Player();
   e = new Enemy();
+  score = 0;
 }
  
 void draw() {    
@@ -30,12 +31,19 @@ void draw() {
   p.move();
   p.draw();
   
+  score++;
+  
+   fill(255,255,255);
+   text(score,10,10);
+   text(highscore,100,10);
+   
   if(e.intersects(p))
   {
     //gameover
+    if(highscore< score) highscore = score;
+    
     init();
   }
-   //v.velocity.add(new PVector(mouseX,0));
  }
  
  void keyPressed()
