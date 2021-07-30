@@ -1,15 +1,4 @@
 
-// class viereck
-// draw()
-// move()
-// 
-// position
-// color
-// size
-// velocity
-// speed
-
-
 class Viereck
 {
   Viereck()

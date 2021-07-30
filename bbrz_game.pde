@@ -33,18 +33,16 @@ void draw() {
   
   score++;
   
-   fill(255,255,255);
-   text("score: " + score,10,10);
-   text("highscore" + highscore,200,10);
+  fill(255,255,255);
+  text("score: " + score,10,10);
+  text("highscore" + highscore,200,10);
    
-   if(score%150 == 0)
-     e.speed++;
+  if(score%150 == 0) // increase difficulty
+    e.speed++;
      
-  if(e.intersects(p))
+  if(e.intersects(p))  // check for gameover
   {
-    //gameover
     if(highscore< score) highscore = score;
-    
     init();
   }
  }
