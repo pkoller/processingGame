@@ -46,16 +46,10 @@ class Viereck
     boolean isRight =  (position.x + size) < other.position.x;
     boolean isUnder = (position.y + size) < other.position.y;
     
-    if(isAbove)
-      return false;
-    if(isLeft)
-      return false;
-    if(isRight)
-      return false;
-    if(isUnder)
+    if(isAbove || isLeft || isRight || isUnder)
       return false;
       
-  return true;
+    return true;
   }
   
   int size;
