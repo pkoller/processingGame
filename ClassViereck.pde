@@ -8,16 +8,30 @@ class Viereck
     myColor = color(255,0,0);
     direction = new PVector(0,0);
     speed = 6;
+    img = loadImage("character.png");
   }
   void draw()
   {
     fill(myColor);
     rect(position.x, position.y, size, size);
+    image(img, position.x, position.y, size, size);
   }
   
   void move()
   {
-    position.add(direction.copy().mult(speed));
+    PVector nextStep = direction.copy().mult(speed);
+    
+    if((position.x + size + nextStep.x) > width)
+      nextStep.x = 0;
+    if( (position.x + nextStep.x) < 0)
+      nextStep.x = 0;
+      
+    if((position.y+ size+ nextStep.y) > height)
+      nextStep.y = 0;
+    if((position.y + nextStep.y) <0)
+      nextStep.y = 0;
+    
+   position.add(nextStep);
   }
   
   boolean intersects(Viereck other)
