@@ -13,7 +13,7 @@ class Viereck
   void draw()
   {
     fill(myColor);
-    rect(position.x, position.y, size, size);
+    //rect(position.x, position.y, size, size);
     image(img, position.x, position.y, size, size);
   }
   
@@ -22,10 +22,15 @@ class Viereck
     PVector nextStep = direction.copy().mult(speed);
     
     if((position.x + size + nextStep.x) > width)
+    {
       nextStep.x = 0;
+      position.x = 0;
+    }
     if( (position.x + nextStep.x) < 0)
+    {
       nextStep.x = 0;
-      
+      position.x = width - size;
+    } 
     if((position.y+ size+ nextStep.y) > height)
       nextStep.y = 0;
     if((position.y + nextStep.y) <0)
