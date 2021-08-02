@@ -58,4 +58,5 @@ class Viereck
   color myColor;
   float speed;
   PVector direction;
+  PImage img;
 }
